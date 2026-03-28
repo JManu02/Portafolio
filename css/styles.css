@@ -11,6 +11,7 @@
   --border-accent:  rgba(99,210,255,0.3);
   --accent:         #63d2ff;
   --accent2:        #a78bfa;
+  --accent-ai:      #34d399;
   --text:           #e8e8f0;
   --muted:          #6b7280;
   --green:          #34d399;
@@ -186,9 +187,26 @@ h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.0
 .skill-group:hover { border-color: var(--border-accent); transform: translateY(-2px); }
 .skill-category { font-size: 11px; font-family: var(--font-mono); color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* Tag base */
 .tag { font-size: 12px; padding: 3px 10px; background: var(--surface2); border-radius: 20px; color: var(--text); border: 1px solid var(--border); transition: border-color var(--transition), color var(--transition); }
 .tag:hover { border-color: rgba(99,210,255,0.3); color: var(--accent); }
+
+/* Tag idiomas */
 .tag-lang { color: var(--accent2); border-color: rgba(167,139,250,0.25); background: rgba(167,139,250,0.06); }
+
+/* Tag IA */
+.tag-ai {
+  color: var(--green);
+  border-color: rgba(52,211,153,0.3);
+  background: rgba(52,211,153,0.06);
+  transition: border-color var(--transition), background var(--transition);
+}
+.tag-ai:hover {
+  border-color: rgba(52,211,153,0.55);
+  background: rgba(52,211,153,0.12);
+  color: var(--green);
+}
 
 /* =============================================
    PROJECTS
@@ -227,7 +245,7 @@ h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.0
 .project-card.app .card-glow  { box-shadow: inset 0 0 60px rgba(167,139,250,0.04); }
 .project-card:hover .card-glow { opacity: 1; }
 
-/* ── GALERÍA ── */
+/* ── GALERÍA BASE ── */
 .gallery {
   position: relative;
   width: 100%;
@@ -235,12 +253,6 @@ h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.0
   overflow: hidden;
   background: #0d0d14;
   flex-shrink: 0;
-}
-
-/* Capturas de móvil: más angostas, fondo neutro */
-.gallery.gallery-mobile {
-  height: 300px;
-  background: #0d0d14;
 }
 
 .gallery-track {
@@ -261,7 +273,24 @@ h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.0
   -webkit-user-drag: none;
 }
 
-/* Pantallas móviles: mostrar con object-fit contain para que no se recorten */
+/* gallery-contain */
+.gallery.gallery-contain {
+  height: 320px;
+  background: #0d0d14;
+}
+
+.gallery.gallery-contain .gallery-track img {
+  object-fit: contain;
+  object-position: center top;
+  background: #0d0d14;
+}
+
+/* ── gallery-mobile (Mercantware) ── */
+.gallery.gallery-mobile {
+  height: 300px;
+  background: #0d0d14;
+}
+
 .gallery.gallery-mobile .gallery-track img {
   object-fit: contain;
   background: #0d0d14;
@@ -406,8 +435,6 @@ h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.0
 .btn-download:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(99,210,255,0.25); background: #8de4ff; }
 .download-icon { font-size: 16px; animation: bounce-down 1.5s ease-in-out infinite; }
 @keyframes bounce-down { 0%,100%{transform:translateY(0)} 50%{transform:translateY(3px)} }
-.cv-note { font-size: 11px !important; color: var(--muted) !important; font-family: var(--font-mono); line-height: 1.5; margin-bottom: 0 !important; }
-.cv-note code { color: var(--accent2); }
 
 /* =============================================
    CONTACT
@@ -450,6 +477,7 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
   body { cursor: auto; }
   .cursor, .cursor-dot { display: none; }
   .gallery { height: 200px; }
+  .gallery.gallery-contain { height: 240px; }
   .gallery.gallery-mobile { height: 340px; }
 }
 
@@ -458,4 +486,5 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
   .hero { padding: 4rem 0 2rem; }
   nav { padding: 1.25rem; }
   .gallery { height: 180px; }
+  .gallery.gallery-contain { height: 210px; }
 }

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="img/Logo.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>José Manuel Varela Méndez — Ingeniero en Sistemas</title>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;700;800&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
 
   <div class="cursor" id="cursor"></div>
@@ -27,11 +31,11 @@
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#sobre-mi"  class="mobile-link">Sobre mí</a>
-    <a href="#skills"    class="mobile-link">Skills</a>
+    <a href="#sobre-mi" class="mobile-link">Sobre mí</a>
+    <a href="#skills" class="mobile-link">Skills</a>
     <a href="#proyectos" class="mobile-link">Proyectos</a>
-    <a href="#cv"        class="mobile-link">CV</a>
-    <a href="#contacto"  class="mobile-link">Contacto</a>
+    <a href="#cv" class="mobile-link">CV</a>
+    <a href="#contacto" class="mobile-link">Contacto</a>
   </div>
 
   <div class="container">
@@ -69,10 +73,44 @@
       </div>
     </div>
 
+    <!-- SOBRE MÍ -->
+    <section class="section" id="sobre-mi">
+      <div class="section-header reveal">
+        <span class="section-num">01</span>
+        <h2>Sobre mí</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal reveal-delay-1">
+          <p>Soy José Manuel Varela Méndez, ingeniero en sistemas graduado en 2025 de la Universidad Fidélitas en Costa
+            Rica.</p>
+          <p>Me apasiona construir soluciones digitales que resuelvan problemas reales, desde plataformas web hasta
+            aplicaciones móviles. Trabajo con un stack moderno que abarca frontend, backend y mobile development.</p>
+          <p>Actualmente en busca de una nueva posición profesional formal, con disposición de seguir aprendiendo y
+            aportando en equipos de tecnología.</p>
+        </div>
+        <div class="about-card reveal reveal-delay-2">
+          <h3>// info</h3>
+          <div class="detail-row"><span class="detail-label">Nombre</span><span class="detail-value">José Manuel Varela
+              M.</span></div>
+          <div class="detail-row"><span class="detail-label">Universidad</span><span
+              class="detail-value">Fidélitas</span></div>
+          <div class="detail-row"><span class="detail-label">Graduación</span><span class="detail-value">2025</span>
+          </div>
+          <div class="detail-row"><span class="detail-label">Ubicación</span><span class="detail-value">Alajuela, Costa
+              Rica 🇨🇷</span></div>
+          <div class="detail-row"><span class="detail-label">Disponibilidad</span><span class="detail-value"><span
+                class="status-dot">●</span> Abierto a ofertas</span></div>
+          <div class="detail-row"><span class="detail-label">Idiomas</span><span class="detail-value">ES nativo · EN
+              B2</span></div>
+        </div>
+      </div>
+    </section>
+
     <!-- SKILLS -->
     <section class="section" id="skills">
       <div class="section-header reveal">
-        <span class="section-num">01</span>
+        <span class="section-num">02</span>
         <h2>Stack tecnológico</h2>
         <div class="section-line"></div>
       </div>
@@ -104,19 +142,26 @@
           </div>
         </div>
         <div class="skill-group reveal reveal-delay-2">
+          <div class="skill-category">Inteligencia Artificial</div>
+          <div class="skill-tags">
+            <span class="tag tag-ai">Claude · Anthropic</span>
+            <span class="tag tag-ai">Prompt Engineering</span>
+            <span class="tag tag-ai">AI-assisted Dev</span>
+          </div>
+        </div>
+        <div class="skill-group reveal reveal-delay-3">
           <div class="skill-category">Idiomas</div>
           <div class="skill-tags">
-            <span class="tag tag-lang">Español </span>
-            <span class="tag tag-lang">Inglés </span>
+            <span class="tag tag-lang">Español</span>
+            <span class="tag tag-lang">Inglés B2</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section class="section" id="proyectos">
       <div class="section-header reveal">
-        <span class="section-num">02</span>
+        <span class="section-num">03</span>
         <h2>Proyectos</h2>
         <div class="section-line"></div>
       </div>
@@ -127,7 +172,7 @@
         <div class="project-card web reveal reveal-delay-1">
           <div class="card-glow"></div>
 
-          <div class="gallery" data-gallery="monka">
+          <div class="gallery gallery-contain" data-gallery="monka">
             <div class="gallery-track" id="gallery-monka">
               <img src="img/Monka1.png" alt="Academia Monká – página de inicio" loading="lazy" />
               <img src="img/Monka2.png" alt="Academia Monká – lista de jugadores" loading="lazy" />
@@ -144,7 +189,9 @@
             <div class="project-inner">
               <p class="project-num">PROYECTO / 001</p>
               <h3>Academia Monká — Plataforma web</h3>
-              <p>Sitio web para la Academia Monká que centraliza la gestión de jugadores y estadísticas deportivas. Los entrenadores llevan control completo del plantel y los jugadores consultan su rendimiento partido a partido.</p>
+              <p>Sitio web para la Academia Monká que centraliza la gestión de jugadores y estadísticas deportivas. Los
+                entrenadores llevan control completo del plantel y los jugadores consultan su rendimiento partido a
+                partido.</p>
               <div class="project-tech">
                 <span class="tech-tag">HTML5</span>
                 <span class="tech-tag">CSS3</span>
@@ -158,7 +205,10 @@
                 <span class="project-badge badge-web">Web</span>
               </div>
               <a class="btn-github" href="https://github.com/Jercahdz/MONKA_Academia" target="_blank" rel="noopener">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                </svg>
                 Ver en GitHub
               </a>
             </div>
@@ -188,7 +238,8 @@
             <div class="project-inner">
               <p class="project-num">PROYECTO / 002</p>
               <h3>Mercantware — App móvil</h3>
-              <p>Aplicación móvil para Mimi Supers con gestión de clientes, productos, facturas y estadísticas de ventas. Construida con React Native, actualmente en fase activa de desarrollo.</p>
+              <p>Aplicación móvil para Mimi Supers con gestión de clientes, productos, facturas y estadísticas de
+                ventas. Construida con React Native, actualmente en fase activa de desarrollo.</p>
               <div class="project-tech">
                 <span class="tech-tag purple">React</span>
                 <span class="tech-tag purple">React Native</span>
@@ -201,38 +252,16 @@
                 <span class="project-badge badge-wip">En desarrollo</span>
               </div>
               <a class="btn-github" href="https://github.com/JuanM-25/Mercantware" target="_blank" rel="noopener">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                </svg>
                 Ver en GitHub
               </a>
             </div>
           </div>
         </div>
 
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section" id="sobre-mi">
-      <div class="section-header reveal">
-        <span class="section-num">03</span>
-        <h2>Sobre mí</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="about-grid">
-        <div class="about-text reveal reveal-delay-1">
-          <p>Soy José Manuel Varela Méndez, ingeniero en sistemas graduado en 2025 de la Universidad Fidélitas en Costa Rica.</p>
-          <p>Me apasiona construir soluciones digitales que resuelvan problemas reales, desde plataformas web hasta aplicaciones móviles. Trabajo con un stack moderno que abarca frontend, backend y mobile development.</p>
-          <p>Actualmente en busca de una nueva posicion profesional formal, con disposición de seguir aprendiendo y aportando en equipos de tecnología.</p>
-        </div>
-        <div class="about-card reveal reveal-delay-2">
-          <h3>// info</h3>
-          <div class="detail-row"><span class="detail-label">Nombre</span><span class="detail-value">José Manuel Varela M.</span></div>
-          <div class="detail-row"><span class="detail-label">Universidad</span><span class="detail-value">Fidélitas</span></div>
-          <div class="detail-row"><span class="detail-label">Graduación</span><span class="detail-value">2025</span></div>
-          <div class="detail-row"><span class="detail-label">Ubicación</span><span class="detail-value">Alajuela, Costa Rica 🇨🇷</span></div>
-          <div class="detail-row"><span class="detail-label">Disponibilidad</span><span class="detail-value"><span class="status-dot">●</span> Abierto a ofertas</span></div>
-          <div class="detail-row"><span class="detail-label">Idiomas</span><span class="detail-value">ES nativo · EN B2</span></div>
-        </div>
       </div>
     </section>
 
@@ -245,12 +274,21 @@
       </div>
       <div class="cv-wrapper reveal">
         <div class="cv-left">
-          <p class="cv-intro">¿Querés conocer mi perfil completo? Descargá mi CV en formato PDF con toda mi formación, experiencia y habilidades.</p>
+          <p class="cv-intro">¿Querés conocer mi perfil completo? Descargá mi CV en formato PDF con toda mi formación,
+            experiencia y habilidades.</p>
           <div class="cv-highlights">
-            <div class="cv-item"><span class="cv-icon">🎓</span><div><strong>Ingeniería en Sistemas</strong><span>Universidad Fidélitas · 2025</span></div></div>
-            <div class="cv-item"><span class="cv-icon">💻</span><div><strong>Desarrollo web &amp; mobile</strong><span>Frontend, Backend, React Native</span></div></div>
-            <div class="cv-item"><span class="cv-icon">🌐</span><div><strong>Idiomas</strong><span>Español nativo · Inglés B2</span></div></div>
-            <div class="cv-item"><span class="cv-icon">📍</span><div><strong>Ubicación</strong><span>Alajuela, Costa Rica · Disponible a reubicación</span></div></div>
+            <div class="cv-item"><span class="cv-icon">🎓</span>
+              <div><strong>Ingeniería en Sistemas</strong><span>Universidad Fidélitas · 2025</span></div>
+            </div>
+            <div class="cv-item"><span class="cv-icon">💻</span>
+              <div><strong>Desarrollo web &amp; mobile</strong><span>Frontend, Backend, React Native</span></div>
+            </div>
+            <div class="cv-item"><span class="cv-icon">🌐</span>
+              <div><strong>Idiomas</strong><span>Español nativo · Inglés B2</span></div>
+            </div>
+            <div class="cv-item"><span class="cv-icon">📍</span>
+              <div><strong>Ubicación</strong><span>Alajuela, Costa Rica · Disponible a reubicación</span></div>
+            </div>
           </div>
         </div>
         <div class="cv-right">
@@ -275,14 +313,16 @@
         <div class="section-line"></div>
       </div>
       <div class="contact-wrapper reveal">
-        <p class="contact-intro">¿Tenés una oportunidad o proyecto en mente? Escribime por cualquiera de estos canales.</p>
+        <p class="contact-intro">¿Tenés una oportunidad o proyecto en mente? Escribime por cualquiera de estos canales.
+        </p>
         <div class="contact-links">
           <a class="contact-card" href="mailto:jmanuvm02@gmail.com">
             <span class="contact-icon">✉️</span>
             <h4>Email</h4>
             <p>jmanuvm02@gmail.com</p>
           </a>
-          <a class="contact-card" href="https://www.linkedin.com/in/jose-varela-a03a34272/" target="_blank" rel="noopener">
+          <a class="contact-card" href="https://www.linkedin.com/in/jose-varela-a03a34272/" target="_blank"
+            rel="noopener">
             <span class="contact-icon">💼</span>
             <h4>LinkedIn</h4>
             <p>Jose Varela</p>
@@ -306,4 +346,5 @@
 
   <script src="js/script.js"></script>
 </body>
+
 </html>
