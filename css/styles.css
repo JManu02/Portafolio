@@ -195,7 +195,7 @@ h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.0
 /* Tag idiomas */
 .tag-lang { color: var(--accent2); border-color: rgba(167,139,250,0.25); background: rgba(167,139,250,0.06); }
 
-/* Tag IA */
+/* ── CAMBIO 2: Tag IA (verde esmeralda, acorde al --green) ── */
 .tag-ai {
   color: var(--green);
   border-color: rgba(52,211,153,0.3);
@@ -232,6 +232,7 @@ h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.0
 }
 .project-card.web::before { background: linear-gradient(90deg, var(--accent), #38bdf8); }
 .project-card.app::before { background: linear-gradient(90deg, var(--accent2), #ec4899); }
+.project-card.ai::before  { background: linear-gradient(90deg, var(--green), #63d2ff); }
 .project-card:hover { border-color: var(--border-accent); transform: translateY(-4px); }
 .project-card:hover::before { opacity: 1; }
 
@@ -243,6 +244,7 @@ h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.0
 }
 .project-card.web .card-glow  { box-shadow: inset 0 0 60px rgba(99,210,255,0.04); }
 .project-card.app .card-glow  { box-shadow: inset 0 0 60px rgba(167,139,250,0.04); }
+.project-card.ai  .card-glow  { box-shadow: inset 0 0 60px rgba(52,211,153,0.04); }
 .project-card:hover .card-glow { opacity: 1; }
 
 /* ── GALERÍA BASE ── */
@@ -273,7 +275,7 @@ h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.0
   -webkit-user-drag: none;
 }
 
-/* gallery-contain */
+/* ── CAMBIO 3: gallery-contain — muestra la imagen web completa sin recortar ── */
 .gallery.gallery-contain {
   height: 320px;
   background: #0d0d14;
@@ -285,7 +287,7 @@ h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.0
   background: #0d0d14;
 }
 
-/* ── gallery-mobile (Mercantware) ── */
+/* ── gallery-mobile (Mercantware) — sin cambios ── */
 .gallery.gallery-mobile {
   height: 300px;
   background: #0d0d14;
@@ -356,6 +358,39 @@ h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.0
 .tech-tag:hover { background: rgba(99,210,255,0.12); }
 .tech-tag.purple { border-color: rgba(167,139,250,0.3); color: var(--accent2); background: rgba(167,139,250,0.05); }
 .tech-tag.purple:hover { background: rgba(167,139,250,0.12); }
+.tech-tag.ai { border-color: rgba(52,211,153,0.3); color: var(--green); background: rgba(52,211,153,0.05); }
+.tech-tag.ai:hover { background: rgba(52,211,153,0.12); }
+
+/* ── LINKS DE PROYECTO (demo + github juntos) ── */
+.project-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ── BOTÓN DEMO ── */
+.btn-demo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(52,211,153,0.1);
+  border: 1px solid rgba(52,211,153,0.3);
+  border-radius: var(--radius-md);
+  color: var(--green);
+  font-size: 12px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.btn-demo:hover {
+  background: rgba(52,211,153,0.18);
+  border-color: rgba(52,211,153,0.55);
+  transform: translateY(-1px);
+}
 
 .project-footer {
   display: flex;
@@ -370,9 +405,11 @@ h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.0
 .badge-row { display: flex; gap: 6px; flex-wrap: wrap; }
 
 .project-badge { font-size: 11px; padding: 4px 12px; border-radius: 20px; font-weight: 500; white-space: nowrap; }
-.badge-web { background: rgba(99,210,255,0.1);  color: var(--accent);  border: 1px solid rgba(99,210,255,0.2); }
-.badge-app { background: rgba(167,139,250,0.1); color: var(--accent2); border: 1px solid rgba(167,139,250,0.2); }
-.badge-wip { background: rgba(251,191,36,0.1);  color: var(--amber);   border: 1px solid rgba(251,191,36,0.2); }
+.badge-web  { background: rgba(99,210,255,0.1);  color: var(--accent);  border: 1px solid rgba(99,210,255,0.2); }
+.badge-app  { background: rgba(167,139,250,0.1); color: var(--accent2); border: 1px solid rgba(167,139,250,0.2); }
+.badge-wip  { background: rgba(251,191,36,0.1);  color: var(--amber);   border: 1px solid rgba(251,191,36,0.2); }
+.badge-ai   { background: rgba(52,211,153,0.1);  color: var(--green);   border: 1px solid rgba(52,211,153,0.25); }
+.badge-live { background: rgba(52,211,153,0.08); color: var(--green);   border: 1px solid rgba(52,211,153,0.25); font-weight: 600; }
 
 /* ── BOTÓN GITHUB ── */
 .btn-github {
