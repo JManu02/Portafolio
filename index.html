@@ -2,85 +2,128 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <link rel="icon" href="img/Logo.png" type="image/png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>José Manuel Varela Méndez — Ingeniero en Sistemas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>José Manuel Varela — Ing. Sistemas</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;700;800&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
-
-  <!-- NAV -->
-  <nav id="navbar">
-    <div class="logo"><span>~/</span>jmvarela.dev</div>
-    <ul>
-      <li><a href="#sobre-mi">Sobre mí</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#cv">CV</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
-  </nav>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#sobre-mi" class="mobile-link">Sobre mí</a>
-    <a href="#skills" class="mobile-link">Skills</a>
-    <a href="#proyectos" class="mobile-link">Proyectos</a>
-    <a href="#cv" class="mobile-link">CV</a>
-    <a href="#contacto" class="mobile-link">Contacto</a>
+  <!-- ══════════════════════════════════════
+     FONDO: Grid + Orbs de color
+══════════════════════════════════════ -->
+  <div class="bg-layer bg-grid"></div>
+  <div class="bg-layer">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
   </div>
 
-  <div class="container">
+  <main>
 
-    <!-- HERO -->
-    <section class="hero" id="hero">
-      <p class="hero-tag reveal">Ingeniero en Sistemas · Universidad Fidélitas · 2025</p>
-      <h1 class="reveal reveal-delay-1">
-        Hola, soy<br>
-        <span class="accent-text typed-name"></span>
-      </h1>
-      <p class="hero-sub reveal reveal-delay-2">
-        Ingeniero en Sistemas graduado de la Universidad Fidélitas en Costa Rica.
-        Construyo aplicaciones web y móviles con foco en usabilidad, datos y código limpio.
-      </p>
-      <div class="hero-ctas reveal reveal-delay-3">
-        <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
-        <a href="#contacto" class="btn btn-ghost">Contáctame</a>
+    <!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+    <nav id="nav">
+      <a href="#hero" class="nav-logo">~/jmvarela.dev</a>
+      <ul class="nav-links">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <div class="nav-status">
+        <span class="s-dot"></span>Abierto a ofertas
+      </div>
+      <button class="ham" id="ham" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Menú móvil -->
+    <div class="mob-menu" id="mob">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#skills">Skills</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#cv">CV</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+    <section id="hero">
+      <div class="hero-inner">
+
+        <!-- Contenido izquierdo -->
+        <div>
+          <div class="hero-hi reveal">Hola, mi nombre es</div>
+          <h1 class="hero-name reveal rd1">José Manuel<br><em>Varela Méndez</em></h1>
+          <div class="hero-role reveal rd2"><span id="tw"></span><span class="cursor"></span></div>
+          <p class="hero-desc reveal rd3">
+            Ingeniero en Sistemas recién graduado de la Universidad Fidélitas en Costa Rica.
+            Construyo aplicaciones web con foco en usabilidad, datos y código limpio.
+          </p>
+          <div class="hero-ctas reveal rd4">
+            <a href="#proyectos" class="btn-p"><span>Ver proyectos</span></a>
+            <a href="#contacto" class="btn-s">Contáctame</a>
+          </div>
+          <div class="hero-stats reveal rd4">
+            <div>
+              <div class="stat-n"><span class="cnt" data-t="3">0</span><em>+</em></div>
+              <div class="stat-l">Proyectos</div>
+            </div>
+            <div>
+              <div class="stat-n"><span class="cnt" data-t="15">0</span><em>+</em></div>
+              <div class="stat-l">Tecnologías</div>
+            </div>
+            <div>
+              <div class="stat-n"><span class="cnt" data-t="2025">0</span></div>
+              <div class="stat-l">Graduado · Fidélitas</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decoración derecha (anillos orbitando) -->
+        <div class="hero-deco">
+          <div class="d-ring d-ring-1">
+            <div class="d-dot"></div>
+          </div>
+          <div class="d-ring d-ring-2">
+            <div class="d-dot"></div>
+          </div>
+          <div class="d-ring d-ring-3"></div>
+          <div class="d-center">
+            <div class="d-init">JV</div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- STATS -->
-    <div class="stats reveal">
-      <div class="stat">
-        <span class="stat-num" data-count="4">0</span>
-        <span class="stat-label">Proyectos desarrollados</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num" data-count="10">0</span>
-        <span class="stat-label">Tecnologías dominadas</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num" data-count="2025">0</span>
-        <span class="stat-label">Graduado · Fidélitas</span>
-      </div>
-    </div>
 
-    <section class="section" id="sobre-mi">
-      <div class="section-header reveal">
-        <span class="section-num">01</span>
-        <h2>Sobre mí</h2>
-        <div class="section-line"></div>
-      </div>
+    <!-- ══════════════════════════════════════
+     SOBRE MÍ
+══════════════════════════════════════ -->
+    <section id="sobre-mi">
+      <div class="sec-label reveal"><span class="sec-num">01 /</span>&nbsp;Sobre mí</div>
       <div class="about-grid">
-        <div class="about-text reveal reveal-delay-1">
+
+        <div class="about-text reveal">
+          <h2 class="h2">Construyo soluciones,<br>no solo código.</h2>
           <p>Soy José Manuel Varela Méndez, ingeniero en sistemas graduado en 2025 de la Universidad Fidélitas en Costa
             Rica.</p>
           <p>Me apasiona construir soluciones digitales que resuelvan problemas reales, desde plataformas web hasta
@@ -88,381 +131,497 @@
           <p>Actualmente en busca de una nueva posición profesional formal, con disposición de seguir aprendiendo y
             aportando en equipos de tecnología.</p>
         </div>
-        <div class="about-card reveal reveal-delay-2">
-          <h3>// info</h3>
-          <div class="detail-row"><span class="detail-label">Nombre</span><span class="detail-value">José Manuel Varela
-              Méndez</span></div>
-          <div class="detail-row"><span class="detail-label">Universidad</span><span
-              class="detail-value">Fidélitas</span></div>
-          <div class="detail-row"><span class="detail-label">Graduación</span><span class="detail-value">2025</span>
+
+        <div class="info-table reveal rd2">
+          <div class="info-row">
+            <div class="info-k">Nombre</div>
+            <div class="info-v">José Manuel Varela M.</div>
           </div>
-          <div class="detail-row"><span class="detail-label">Ubicación</span><span class="detail-value">Alajuela, Costa
-              Rica 🇨🇷</span></div>
-          <div class="detail-row"><span class="detail-label">Disponibilidad</span><span class="detail-value"><span
-                class="status-dot">●</span> Abierto a ofertas</span></div>
-          <div class="detail-row"><span class="detail-label">Idiomas</span><span class="detail-value">ES nativo · EN
-              B2</span></div>
+          <div class="info-row">
+            <div class="info-k">Universidad</div>
+            <div class="info-v">Fidélitas</div>
+          </div>
+          <div class="info-row">
+            <div class="info-k">Graduación</div>
+            <div class="info-v">2025</div>
+          </div>
+          <div class="info-row">
+            <div class="info-k">Ubicación</div>
+            <div class="info-v">Alajuela, Costa Rica 🇨🇷</div>
+          </div>
+          <div class="info-row">
+            <div class="info-k">Disponib.</div>
+            <div class="info-v">
+              <span class="avail">
+                <span class="s-dot" style="width:6px;height:6px;animation:none"></span>
+                Abierto a ofertas
+              </span>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-k">Idiomas</div>
+            <div class="info-v">ES nativo · EN B2</div>
+          </div>
         </div>
+
       </div>
     </section>
 
-    <section class="section" id="skills">
-      <div class="section-header reveal">
-        <span class="section-num">02</span>
-        <h2>Stack tecnológico</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-group reveal reveal-delay-1">
-          <div class="skill-category">Frontend</div>
-          <div class="skill-tags">
-            <span class="tag">HTML5</span><span class="tag">CSS3</span>
-            <span class="tag">JavaScript</span><span class="tag">TypeScript</span>
+
+    <!-- ══════════════════════════════════════
+     SKILLS
+══════════════════════════════════════ -->
+    <section id="skills">
+      <div class="sec-label reveal"><span class="sec-num">02 /</span>&nbsp;Stack tecnológico</div>
+      <h2 class="h2 reveal">Herramientas del oficio.</h2>
+      <p class="stack-sub reveal">Las tecnologías con las que construyo día a día.</p>
+      <div class="stack-grid reveal">
+
+        <div class="stack-cat">
+          <div class="cat-l">Frontend</div>
+          <div class="tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">TypeScript</span>
             <span class="tag">React</span>
           </div>
         </div>
-        <div class="skill-group reveal reveal-delay-2">
-          <div class="skill-category">Mobile</div>
-          <div class="skill-tags"><span class="tag">React Native</span></div>
-        </div>
-        <div class="skill-group reveal reveal-delay-3">
-          <div class="skill-category">Backend</div>
-          <div class="skill-tags">
-            <span class="tag">PHP</span><span class="tag">MySQL</span>
-            <span class="tag">MongoDB</span><span class="tag">Node.js</span>
-            <span class="tag">Express</span>
+
+        <div class="stack-cat">
+          <div class="cat-l">Mobile</div>
+          <div class="tags">
+            <span class="tag">React Native</span>
           </div>
         </div>
-        <div class="skill-group reveal reveal-delay-1">
-          <div class="skill-category">Herramientas</div>
-          <div class="skill-tags">
-            <span class="tag">Git</span><span class="tag">GitHub</span>
-            <span class="tag">VS Code</span><span class="tag">Postman</span>
-            <span class="tag">Chrome DevTools</span><span class="tag">Office Suite</span>
-            <span class="tag">Render</span><span class="tag">Vercel</span>
+
+        <div class="stack-cat">
+          <div class="cat-l">Backend</div>
+          <div class="tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express</span>
+            <span class="tag">PHP</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">MongoDB</span>
+          </div>
+        </div>
+
+        <div class="stack-cat">
+          <div class="cat-l">Herramientas</div>
+          <div class="tags">
+            <span class="tag">Git</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">Postman</span>
+            <span class="tag">Render</span>
+            <span class="tag">Vercel</span>
             <span class="tag">Railway</span>
           </div>
         </div>
-        <div class="skill-group reveal reveal-delay-2">
-          <div class="skill-category">IA & Prompting</div>
-          <div class="skill-tags">
-            <span class="tag tag-ai">Claude 101</span>
-            <span class="tag tag-ai">Claude Code</span>
-            <span class="tag tag-ai">Intro to Subagents</span>
-          </div>
-        </div>
-        <div class="skill-group reveal reveal-delay-3">
-          <div class="skill-category">Redes</div>
-          <div class="skill-tags">
-            <span class="tag tag-net">CCNAv7 Intro to Networks</span>
-            <span class="tag tag-net">CCNAv7 Switching & Routing</span>
-            <span class="tag tag-net">Introduction to IoT</span>
 
+        <div class="stack-cat">
+          <div class="cat-l">IA &amp; Prompting</div>
+          <div class="tags">
+            <span class="tag">Claude 101</span>
+            <span class="tag">Claude Code</span>
           </div>
         </div>
-        <div class="skill-group reveal reveal-delay-3">
-          <div class="skill-category">Idiomas</div>
-          <div class="skill-tags">
-            <span class="tag tag-lang">Español</span>
-            <span class="tag tag-lang">Inglés B2</span>
+
+        <div class="stack-cat">
+          <div class="cat-l">Redes</div>
+          <div class="tags">
+            <span class="tag">CCNAv7 Intro</span>
+            <span class="tag">CCNAv7 S&amp;R</span>
           </div>
         </div>
+
       </div>
     </section>
 
-    <section class="section" id="proyectos">
-      <div class="section-header reveal">
-        <span class="section-num">03</span>
-        <h2>Proyectos</h2>
-        <div class="section-line"></div>
-      </div>
 
-      <div class="projects-grid">
+    <!-- ══════════════════════════════════════
+     PROYECTOS
+══════════════════════════════════════ -->
+    <section id="proyectos">
+      <div class="sec-label reveal"><span class="sec-num">03 /</span>&nbsp;Proyectos</div>
+      <h2 class="h2 reveal">Lo que he construido.</h2>
+      <div class="proj-list reveal">
 
-        <!-- PROYECTO 1: ACADEMIA MONKÁ -->
-        <div class="project-card web reveal reveal-delay-1">
-          <div class="card-glow"></div>
-
-          <div class="gallery gallery-contain" data-gallery="monka">
-            <div class="gallery-track" id="gallery-monka">
-              <img src="img/Monka1.png" alt="Academia Monká – página de inicio" loading="lazy" />
-              <img src="img/Monka2.png" alt="Academia Monká – lista de jugadores" loading="lazy" />
-              <img src="img/Monka3.png" alt="Academia Monká – estadísticas" loading="lazy" />
+        <!-- ─── Proyecto 001: Academia Monká ─── -->
+        <div class="proj-card">
+          <div>
+            <div class="proj-num">PROYECTO / 001</div>
+            <h3 class="proj-title">Academia Monká</h3>
+            <div class="proj-sub">Plataforma web deportiva</div>
+            <p class="proj-desc">
+              Sitio web para la Academia Monká que centraliza la gestión de jugadores y estadísticas deportivas.
+              Los entrenadores llevan control completo del plantel y los jugadores consultan su rendimiento partido a
+              partido.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">HTML5</span>
+              <span class="proj-tag">CSS3</span>
+              <span class="proj-tag">JavaScript</span>
+              <span class="proj-tag">PHP</span>
+              <span class="proj-tag">MySQL</span>
             </div>
-            <div class="gallery-dots" id="dots-monka">
-              <span class="dot active"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
-          </div>
-
-          <div class="project-body">
-            <div class="project-inner">
-              <p class="project-num">PROYECTO / 001</p>
-              <h3>Academia Monká — Plataforma web</h3>
-              <p>Sitio web para la Academia Monká que centraliza la gestión de jugadores y estadísticas deportivas. Los
-                entrenadores llevan control completo del plantel y los jugadores consultan su rendimiento partido a
-                partido.</p>
-              <div class="project-tech">
-                <span class="tech-tag">HTML5</span>
-                <span class="tech-tag">CSS3</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">PHP</span>
-                <span class="tech-tag">MySQL</span>
-              </div>
-            </div>
-            <div class="project-footer">
-              <div class="badge-row">
-                <span class="project-badge badge-web">Web</span>
-              </div>
-              <a class="btn-github" href="https://github.com/Jercahdz/MONKA_Academia" target="_blank" rel="noopener">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <div class="proj-links">
+              <span class="badge badge-live">Web</span>
+              <a href="https://github.com/Jercahdz/MONKA_Academia" target="_blank" class="lk">
+                <svg viewBox="0 0 16 16" fill="currentColor">
                   <path
-                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
                 </svg>
-                Ver en GitHub
+                GitHub
               </a>
             </div>
           </div>
-        </div>
-
-        <!-- PROYECTO 2: MERCANTWARE -->
-        <div class="project-card app reveal reveal-delay-2">
-          <div class="card-glow"></div>
-
-          <div class="gallery gallery-mobile" data-gallery="merca">
-            <div class="gallery-track" id="gallery-merca">
-              <img src="img/Merca1.png" alt="Mercantware – clientes" loading="lazy" />
-              <img src="img/Merca2.png" alt="Mercantware – productos" loading="lazy" />
-              <img src="img/Merca3.png" alt="Mercantware – facturas" loading="lazy" />
-              <img src="img/Merca4.png" alt="Mercantware – estadísticas" loading="lazy" />
+          <!-- Galería de imágenes: data-g="0" identifica esta galería en el JS -->
+          <div class="gallery" data-g="0">
+            <div class="gal-track">
+              <div class="gal-slide"><img src="img/Monka1.png" alt="Academia Monká inicio" loading="lazy"></div>
+              <div class="gal-slide"><img src="img/Monka2.png" alt="Academia Monká jugadores" loading="lazy"></div>
+              <div class="gal-slide"><img src="img/Monka3.png" alt="Academia Monká estadísticas" loading="lazy"></div>
             </div>
-            <div class="gallery-dots" id="dots-merca">
-              <span class="dot active"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
-          </div>
-
-          <div class="project-body">
-            <div class="project-inner">
-              <p class="project-num">PROYECTO / 002</p>
-              <h3>Mercantware — App móvil</h3>
-              <p>Aplicación móvil para Mimi Supers con gestión de clientes, productos, facturas y estadísticas de
-                ventas. Construida con React Native, actualmente en fase activa</p>
-              <div class="project-tech">
-                <span class="tech-tag purple">React</span>
-                <span class="tech-tag purple">React Native</span>
-                <span class="tech-tag purple">TypeScript</span>
-              </div>
-            </div>
-            <div class="project-footer">
-              <div class="badge-row">
-                <span class="project-badge badge-app">Mobile</span>
-              </div>
-              <div class="project-links">
-                <a class="btn-demo" href="https://jmanu02.github.io/Mercantweare_Web/" target="_blank" rel="noopener">
-                  Ver página
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- PROYECTO 3: CHATBOT CR -->
-          <div class="project-card ai reveal reveal-delay-3">
-            <div class="card-glow"></div>
-
-            <div class="gallery gallery-contain" data-gallery="chatbot">
-              <div class="gallery-track" id="gallery-chatbot">
-                <img src="img/Chatbot1.png" alt="Chatbot CR – pantalla de inicio" loading="lazy" />
-                <img src="img/Chatbot2.png" alt="Chatbot CR – conversación en curso" loading="lazy" />
-                <img src="img/Chatbot3.png" alt="Chatbot CR – respuesta completa" loading="lazy" />
-              </div>
-              <div class="gallery-dots" id="dots-chatbot">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </div>
-            </div>
-
-            <div class="project-body">
-              <div class="project-inner">
-                <p class="project-num">PROYECTO / 004</p>
-                <h3>Chatbot CR — Asistente con IA</h3>
-                <p>Chatbot de orientación profesional para estudiantes tech de Costa Rica. Integra la API de Groq con IA
-                  real, selector de personalidad (Amigable, Profesional, Técnico), backend en Node.js y deploy en Vercel
-                  +
-                  Render.</p>
-                <div class="project-tech">
-                  <span class="tech-tag ai">React</span>
-                  <span class="tech-tag ai">TypeScript</span>
-                  <span class="tech-tag ai">Node.js</span>
-                  <span class="tech-tag ai">Groq API</span>
-                  <span class="tech-tag ai">Vercel</span>
-                </div>
-              </div>
-              <div class="project-footer">
-                <div class="badge-row">
-                  <span class="project-badge badge-ai">IA</span>
-                  <span class="project-badge badge-live">En vivo ↗</span>
-                </div>
-                <div class="project-links">
-                  <a class="btn-demo" href="https://careerbot-cr.vercel.app/" target="_blank" rel="noopener">
-                    Ver demo
-                  </a>
-                  <a class="btn-github" href="https://github.com/JManu02/chatbot-cr" target="_blank" rel="noopener">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                      <path
-                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-                    </svg>
-                    Ver en GitHub
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- PROYECTO 4: TASK MANAGER API -->
-          <div class="project-card backend reveal reveal-delay-1">
-            <div class="card-glow"></div>
-
-            <div class="gallery gallery-contain" data-gallery="api">
-              <div class="gallery-track" id="gallery-api">
-                <img src="img/Api1.png" alt="Task Manager API – POST /auth/register · 201 Created" loading="lazy" />
-                <img src="img/Api2.png" alt="Task Manager API – POST /auth/login · 200 OK" loading="lazy" />
-                <img src="img/Api3.png" alt="Task Manager API – POST /tasks · 201 Created" loading="lazy" />
-                <img src="img/Api4.png" alt="Task Manager API – GET /tasks sin token · 401 Unauthorized"
-                  loading="lazy" />
-                <img src="img/Api5.png" alt="Task Manager API – GET /tasks con token · 200 OK" loading="lazy" />
-              </div>
-              <div class="gallery-dots" id="dots-api">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </div>
-            </div>
-
-            <div class="project-body">
-              <div class="project-inner">
-                <p class="project-num">PROYECTO / 004</p>
-                <h3>Task Manager API — REST API de producción</h3>
-                <p>API REST con autenticación JWT de doble token (access 15 min + refresh 7 días), blacklist en logout,
-                  autorización por roles user/admin, CRUD de tareas con protección por ownership y validación de inputs
-                  con Zod. Desplegada en Render con MongoDB Atlas.</p>
-                <div class="project-tech">
-                  <span class="tech-tag backend">Node.js</span>
-                  <span class="tech-tag backend">Express</span>
-                  <span class="tech-tag backend">MongoDB</span>
-                  <span class="tech-tag backend">JWT</span>
-                  <span class="tech-tag backend">Zod</span>
-                  <span class="tech-tag backend">Render</span>
-                </div>
-              </div>
-              <div class="project-footer">
-                <div class="badge-row">
-                  <span class="project-badge badge-backend">Backend</span>
-                  <span class="project-badge badge-live">En vivo ↗</span>
-                </div>
-                <div class="project-links">
-                  <a class="btn-github" href="https://github.com/JManu02/task-manager-api" target="_blank"
-                    rel="noopener">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                      <path
-                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-                    </svg>
-                    Ver en GitHub
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-    </section>
-
-    <!-- CV -->
-    <section class="section" id="cv">
-      <div class="section-header reveal">
-        <span class="section-num">04</span>
-        <h2>Currículum Vitae</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="cv-wrapper reveal">
-        <div class="cv-left">
-          <p class="cv-intro">¿Querés conocer mi perfil completo? Descargá mi CV en formato PDF con toda mi formación,
-            experiencia y habilidades.</p>
-          <div class="cv-highlights">
-            <div class="cv-item"><span class="cv-icon">🎓</span>
-              <div><strong>Ingeniería en Sistemas</strong><span>Universidad Fidélitas · 2025</span></div>
-            </div>
-            <div class="cv-item"><span class="cv-icon">💻</span>
-              <div><strong>Desarrollo web &amp; mobile</strong><span>Frontend, Backend, React Native</span></div>
-            </div>
-            <div class="cv-item"><span class="cv-icon">🌐</span>
-              <div><strong>Idiomas</strong><span>Español nativo · Inglés B2</span></div>
-            </div>
-            <div class="cv-item"><span class="cv-icon">📍</span>
-              <div><strong>Ubicación</strong><span>Alajuela, Costa Rica · Disponible a reubicación</span></div>
+            <button class="gal-btn prev" onclick="ps(0)">&#8249;</button>
+            <button class="gal-btn next" onclick="ns(0)">&#8250;</button>
+            <div class="gal-dots">
+              <div class="gal-dot on" onclick="gs(0,0)"></div>
+              <div class="gal-dot" onclick="gs(0,1)"></div>
+              <div class="gal-dot" onclick="gs(0,2)"></div>
             </div>
           </div>
         </div>
-        <div class="cv-right">
-          <div class="cv-card">
-            <div class="cv-card-icon">📄</div>
-            <h4>CV — José Manuel Varela</h4>
-            <p>2025</p>
-            <a href="CV/CV_Jose_Varela_EN.pdf" download="CV_José_Varela.pdf" class="btn-download" id="downloadBtn">
-              <span class="download-icon">↓</span>
-              Descargar CV
-            </a>
+
+        <!-- ─── Proyecto 002: Chatbot CR ─── -->
+        <div class="proj-card">
+          <div>
+            <div class="proj-num">PROYECTO / 002</div>
+            <h3 class="proj-title">Chatbot CR</h3>
+            <div class="proj-sub">Asistente con IA</div>
+            <p class="proj-desc">
+              Chatbot de orientación profesional para estudiantes tech de Costa Rica. Integra la API de Groq con IA
+              real,
+              selector de personalidad (Amigable, Profesional, Técnico), backend en Node.js y deploy en Vercel + Render.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">React</span>
+              <span class="proj-tag">TypeScript</span>
+              <span class="proj-tag">Node.js</span>
+              <span class="proj-tag">Groq API</span>
+              <span class="proj-tag">Vercel</span>
+            </div>
+            <div class="proj-links">
+              <span class="badge badge-live">En vivo</span>
+              <span class="badge badge-ai">IA</span>
+              <a href="https://careerbot-cr.vercel.app/" target="_blank" class="lk">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                </svg>
+                Demo
+              </a>
+              <a href="https://github.com/JManu02/chatbot-cr" target="_blank" class="lk">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path
+                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+          <div class="gallery" data-g="1">
+            <div class="gal-track">
+              <div class="gal-slide"><img src="img/Chatbot1.png" alt="Chatbot CR inicio" loading="lazy"></div>
+              <div class="gal-slide"><img src="img/Chatbot2.png" alt="Chatbot CR conversación" loading="lazy"></div>
+              <div class="gal-slide"><img src="img/Chatbot3.png" alt="Chatbot CR respuesta" loading="lazy"></div>
+            </div>
+            <button class="gal-btn prev" onclick="ps(1)">&#8249;</button>
+            <button class="gal-btn next" onclick="ns(1)">&#8250;</button>
+            <div class="gal-dots">
+              <div class="gal-dot on" onclick="gs(1,0)"></div>
+              <div class="gal-dot" onclick="gs(1,1)"></div>
+              <div class="gal-dot" onclick="gs(1,2)"></div>
+            </div>
           </div>
         </div>
+
+        <!-- ─── Proyecto 003: Task Manager API ─── -->
+        <div class="proj-card">
+          <div>
+            <div class="proj-num">PROYECTO / 003</div>
+            <h3 class="proj-title">Task Manager API</h3>
+            <div class="proj-sub">REST API de producción</div>
+            <p class="proj-desc">
+              API REST con autenticación JWT de doble token (access 15 min + refresh 7 días), blacklist en logout,
+              autorización por roles user/admin, CRUD de tareas con protección por ownership y validación con Zod.
+              Desplegada en Render con MongoDB Atlas.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">Node.js</span>
+              <span class="proj-tag">Express</span>
+              <span class="proj-tag">MongoDB</span>
+              <span class="proj-tag">JWT</span>
+              <span class="proj-tag">Zod</span>
+              <span class="proj-tag">Render</span>
+            </div>
+            <div class="proj-links">
+              <span class="badge badge-back">Backend</span>
+              <span class="badge badge-live">En vivo</span>
+              <a href="https://github.com/JManu02/task-manager-api" target="_blank" class="lk">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path
+                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+          <div class="gallery" data-g="2">
+            <div class="gal-track">
+              <div class="gal-slide"><img src="img/Api1.png" alt="Task Manager API registro" loading="lazy"></div>
+              <div class="gal-slide"><img src="img/Api2.png" alt="Task Manager API login" loading="lazy"></div>
+              <div class="gal-slide"><img src="img/Api3.png" alt="Task Manager API tareas" loading="lazy"></div>
+              <div class="gal-slide"><img src="img/Api4.png" alt="Task Manager API sin token" loading="lazy"></div>
+              <div class="gal-slide"><img src="img/Api5.png" alt="Task Manager API con token" loading="lazy"></div>
+            </div>
+            <button class="gal-btn prev" onclick="ps(2)">&#8249;</button>
+            <button class="gal-btn next" onclick="ns(2)">&#8250;</button>
+            <div class="gal-dots">
+              <div class="gal-dot on" onclick="gs(2,0)"></div>
+              <div class="gal-dot" onclick="gs(2,1)"></div>
+              <div class="gal-dot" onclick="gs(2,2)"></div>
+              <div class="gal-dot" onclick="gs(2,3)"></div>
+              <div class="gal-dot" onclick="gs(2,4)"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ─── Proyecto 004: E-Tech Haven ─── -->
+        <div class="proj-card">
+          <div>
+            <div class="proj-num">PROYECTO / 004</div>
+            <h3 class="proj-title">E-Tech Haven</h3>
+            <div class="proj-sub">Tienda de tecnología · Multi-página</div>
+            <p class="proj-desc">
+              E-commerce completo de productos tecnológicos con navegación multi-página, carrito de compras funcional,
+              panel de administración para gestión de productos y categorías, sistema de login y diseño responsive.
+              Proyecto grupal con enfoque en UI cuidada y experiencia de usuario fluida.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">HTML5</span>
+              <span class="proj-tag">CSS3</span>
+              <span class="proj-tag">JavaScript</span>
+              <span class="proj-tag">Multi-página</span>
+              <span class="proj-tag">Admin Panel</span>
+            </div>
+            <div class="proj-links">
+              <span class="badge badge-live">Web</span>
+              <a href="https://jercahdz.github.io/e-techback/" target="_blank" class="lk">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                </svg>
+                Demo
+              </a>
+              <a href="https://github.com/Jercahdz/e-techback" target="_blank" class="lk">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path
+                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+          <div class="gallery" data-g="3">
+            <div class="gal-track">
+              <div class="gal-slide"><img src="img/Tech3.png" alt="E-Tech Haven hero" loading="lazy"></div>
+              <div class="gal-slide"><img src="img/Tech2.png" alt="E-Tech Haven productos" loading="lazy"></div>
+              <div class="gal-slide"><img src="img/Tech4.png" alt="E-Tech Haven componentes" loading="lazy"></div>
+              <div class="gal-slide"><img src="img/Tech1.png" alt="E-Tech Haven login" loading="lazy"></div>
+            </div>
+            <button class="gal-btn prev" onclick="ps(3)">&#8249;</button>
+            <button class="gal-btn next" onclick="ns(3)">&#8250;</button>
+            <div class="gal-dots">
+              <div class="gal-dot on" onclick="gs(3,0)"></div>
+              <div class="gal-dot" onclick="gs(3,1)"></div>
+              <div class="gal-dot" onclick="gs(3,2)"></div>
+              <div class="gal-dot" onclick="gs(3,3)"></div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="section" id="contacto">
-      <div class="section-header reveal">
-        <span class="section-num">05</span>
-        <h2>Contacto</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="contact-wrapper reveal">
-        <p class="contact-intro">¿Tenés una oportunidad o proyecto en mente? Escribime por cualquiera de estos canales.
-        </p>
-        <div class="contact-links">
-          <a class="contact-card" href="mailto:jmanuvm02@gmail.com">
-            <span class="contact-icon">✉️</span>
-            <h4>Email</h4>
-            <p>jmanuvm02@gmail.com</p>
-          </a>
-          <a class="contact-card" href="https://www.linkedin.com/in/jose-varela-a03a34272/" target="_blank"
-            rel="noopener">
-            <span class="contact-icon">💼</span>
-            <h4>LinkedIn</h4>
-            <p>Jose Varela</p>
-          </a>
-          <a class="contact-card" href="https://github.com/JManu02" target="_blank" rel="noopener">
-            <span class="contact-icon">⌨️</span>
-            <h4>GitHub</h4>
-            <p>/JManu02</p>
+
+    <!-- ══════════════════════════════════════
+     CV
+══════════════════════════════════════ -->
+    <section id="cv">
+      <div class="sec-label reveal"><span class="sec-num">04 /</span>&nbsp;Currículum Vitae</div>
+      <div class="cv-grid">
+
+        <div>
+          <h2 class="h2 reveal">Mi perfil<br>completo.</h2>
+          <p class="cv-desc reveal">¿Querés conocer mi perfil completo? Descargá mi CV en formato PDF con toda mi
+            formación, experiencia y habilidades.</p>
+          <div class="cv-list reveal">
+            <div class="cv-item">
+              <div class="cv-ico">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
+              </div>
+              <div class="cv-txt">
+                <strong>Ingeniería en Sistemas</strong>
+                <span>Universidad Fidélitas · 2025</span>
+              </div>
+            </div>
+            <div class="cv-item">
+              <div class="cv-ico">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <path d="M8 21h8M12 17v4" />
+                </svg>
+              </div>
+              <div class="cv-txt">
+                <strong>Desarrollo web &amp; mobile</strong>
+                <span>Frontend, Backend, React Native</span>
+              </div>
+            </div>
+            <div class="cv-item">
+              <div class="cv-ico">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <path
+                    d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+                </svg>
+              </div>
+              <div class="cv-txt">
+                <strong>Idiomas</strong>
+                <span>Español nativo · Inglés B2</span>
+              </div>
+            </div>
+            <div class="cv-item">
+              <div class="cv-ico">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div class="cv-txt">
+                <strong>Ubicación</strong>
+                <span>Alajuela, Costa Rica · Disponible a reubicación</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-card reveal rd2">
+          <div class="cv-file">
+            <span>PDF</span>
+            <div class="file-lines"><i></i><i></i><i></i></div>
+          </div>
+          <div>
+            <div class="cv-card-t">CV — José Manuel Varela</div>
+            <div class="cv-card-s">2025 · PDF</div>
+          </div>
+          <!-- Ajustá la ruta de tu CV si cambió -->
+          <a href="CV/CV José Varela.pdf" download class="btn-p" style="width:100%;justify-content:center">
+            <span>↓ Descargar CV</span>
           </a>
         </div>
+
       </div>
     </section>
 
-  </div>
 
-  <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">↑</button>
+    <!-- ══════════════════════════════════════
+     CONTACTO
+══════════════════════════════════════ -->
+    <section id="contacto">
+      <div class="sec-label reveal"><span class="sec-num">05 /</span>&nbsp;Contacto</div>
+      <h2 class="h2 reveal">¿Trabajamos juntos?</h2>
+      <p class="contact-sub reveal">¿Tenés una oportunidad o proyecto en mente? Escribime por cualquiera de estos
+        canales.</p>
+      <div class="contact-grid reveal">
 
+        <a href="mailto:jmanuvm02@gmail.com" class="c-card">
+          <div class="c-top">
+            <div class="c-ico">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="M2 7l10 7 10-7" />
+              </svg>
+            </div>
+            <svg class="c-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7v10" />
+            </svg>
+          </div>
+          <div>
+            <div class="c-lbl">Email</div>
+            <div class="c-val">jmanuvm02@gmail.com</div>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/jose-varela-a03a34272/" target="_blank" class="c-card">
+          <div class="c-top">
+            <div class="c-ico">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </div>
+            <svg class="c-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7v10" />
+            </svg>
+          </div>
+          <div>
+            <div class="c-lbl">LinkedIn</div>
+            <div class="c-val">Jose Varela</div>
+          </div>
+        </a>
+
+        <a href="https://github.com/JManu02" target="_blank" class="c-card">
+          <div class="c-top">
+            <div class="c-ico">
+              <svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor">
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+              </svg>
+            </div>
+            <svg class="c-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7v10" />
+            </svg>
+          </div>
+          <div>
+            <div class="c-lbl">GitHub</div>
+            <div class="c-val">/JManu02</div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
   <footer>
-    <p>// José Manuel Varela Méndez · Ing. Sistemas · Fidélitas 2025 · Costa Rica</p>
+    <div class="ft">// José Manuel Varela Méndez · Ing. Sistemas · Fidélitas 2025 · Costa Rica</div>
+    <a href="#hero" class="top-btn">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 15l-6-6-6 6" />
+      </svg>
+      Volver arriba
+    </a>
   </footer>
 
+  <!-- Scripts -->
   <script src="js/script.js"></script>
 </body>
 

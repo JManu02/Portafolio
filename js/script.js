@@ -1,257 +1,108 @@
-/* =============================================
-   script.js — Portfolio José Manuel Varela
-   ============================================= */
+/* ── TYPEWRITER ── */
+const roles = [
+  'Ingeniero en Sistemas',
+  'Full Stack Developer',
+  'Builder de soluciones web',
+  'Backend · Frontend · Mobile'
+];
+let ri = 0, ci = 0, del = false;
+const tw = document.getElementById('tw');
 
-// ── 1. CURSOR PERSONALIZADO ──────────────────
-const cursor    = document.getElementById('cursor');
-const cursorDot = document.getElementById('cursorDot');
-
-let mouseX = 0, mouseY = 0;
-let cursorX = 0, cursorY = 0;
-
-document.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-  cursorDot.style.left = mouseX + 'px';
-  cursorDot.style.top  = mouseY + 'px';
-});
-
-(function animateCursor() {
-  cursorX += (mouseX - cursorX) * 0.12;
-  cursorY += (mouseY - cursorY) * 0.12;
-  cursor.style.left = cursorX + 'px';
-  cursor.style.top  = cursorY + 'px';
-  requestAnimationFrame(animateCursor);
-})();
-
-document.querySelectorAll('a, button, .skill-group, .project-card, .contact-card, .cv-item, .gallery-btn, .dot').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
-});
-
-
-// ── 2. NAVBAR: scroll + mobile ───────────────
-const navbar     = document.getElementById('navbar');
-const navToggle  = document.getElementById('navToggle');
-const mobileMenu = document.getElementById('mobileMenu');
-
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
-
-navToggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
-
-
-// ── 3. SCROLL TO TOP ─────────────────────────
-const scrollTopBtn = document.getElementById('scrollTop');
-window.addEventListener('scroll', () => {
-  scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
-}, { passive: true });
-scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-
-// ── 4. REVEAL ON SCROLL ──────────────────────
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-
-// ── 5. TYPED EFFECT ──────────────────────────
-const typedEl   = document.querySelector('.typed-name');
-const fullText  = 'José Manuel\nVarela Méndez.';
-let charIndex   = 0;
-let typingStarted = false;
-
-function typeCharacter() {
-  if (charIndex < fullText.length) {
-    const char = fullText[charIndex];
-    typedEl.innerHTML += char === '\n' ? '<br>' : char;
-    charIndex++;
-    setTimeout(typeCharacter, (char === '.' || char === ',') ? 280 : 55);
+function type() {
+  const cur = roles[ri];
+  if (!del) {
+    tw.textContent = cur.slice(0, ++ci);
+    if (ci === cur.length) { del = true; setTimeout(type, 2000); return; }
+  } else {
+    tw.textContent = cur.slice(0, --ci);
+    if (ci === 0) { del = false; ri = (ri + 1) % roles.length; }
   }
+  setTimeout(type, del ? 48 : 75);
 }
+type();
 
-new IntersectionObserver((entries, obs) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !typingStarted) {
-      typingStarted = true;
-      setTimeout(typeCharacter, 600);
-      obs.disconnect();
-    }
-  });
-}, { threshold: 0.5 }).observe(document.querySelector('.hero'));
+/* ── SCROLL REVEAL ── */
+const revEls = document.querySelectorAll('.reveal');
+const revObs = new IntersectionObserver(
+  es => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }); },
+  { threshold: .1, rootMargin: '0px 0px -35px 0px' }
+);
+revEls.forEach(el => revObs.observe(el));
 
+/* hero reveals immediately on load */
+document.querySelectorAll('#hero .reveal').forEach((el, i) =>
+  setTimeout(() => el.classList.add('vis'), 80 + i * 80)
+);
 
-// ── 6. CONTADOR ANIMADO ──────────────────────
-function animateCounter(el, target, duration = 1500) {
-  const start   = performance.now();
-  const isYear  = target >= 2000;
-  const update  = (now) => {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased    = 1 - Math.pow(1 - progress, 3);
-    const current  = Math.round(eased * target);
-    el.textContent = isYear ? current : current + (target >= 10 ? '+' : '');
-    if (progress < 1) requestAnimationFrame(update);
-    else el.textContent = isYear ? target : target + (target >= 10 ? '+' : '');
+/* ── ANIMATED COUNTERS ── */
+document.querySelectorAll('.cnt').forEach(el => {
+  const obs = new IntersectionObserver(([e]) => {
+    if (!e.isIntersecting) return;
+    obs.disconnect();
+    const tgt = +el.dataset.t;
+    const dur = tgt > 500 ? 1400 : 700;
+    const step = tgt / (dur / 16);
+    let v = 0;
+    const t = setInterval(() => {
+      v += step;
+      if (v >= tgt) { v = tgt; clearInterval(t); }
+      el.textContent = Math.floor(v);
+    }, 16);
+  }, { threshold: .6 });
+  obs.observe(el);
+});
+
+/* ── IMAGE GALLERIES ── */
+const G = {};
+document.querySelectorAll('.gallery[data-g]').forEach(g => {
+  const id = +g.dataset.g;
+  G[id] = {
+    cur: 0,
+    track: g.querySelector('.gal-track'),
+    slides: g.querySelectorAll('.gal-slide'),
+    dots: g.querySelectorAll('.gal-dot')
   };
-  requestAnimationFrame(update);
+});
+
+function upd(id) {
+  const g = G[id];
+  g.track.style.transform = `translateX(-${g.cur * 100}%)`;
+  g.dots.forEach((d, i) => d.classList.toggle('on', i === g.cur));
 }
+function ns(id) { const g = G[id]; g.cur = (g.cur + 1) % g.slides.length; upd(id); }
+function ps(id) { const g = G[id]; g.cur = (g.cur - 1 + g.slides.length) % g.slides.length; upd(id); }
+function gs(id, i) { G[id].cur = i; upd(id); }
 
-let countersStarted = false;
-new IntersectionObserver((entries, obs) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !countersStarted) {
-      countersStarted = true;
-      document.querySelectorAll('.stat-num').forEach(el => animateCounter(el, parseInt(el.dataset.count, 10)));
-      obs.disconnect();
-    }
+/* auto-advance (pauses on hover) */
+let autoId = setInterval(() => Object.keys(G).forEach(id => ns(+id)), 3800);
+document.querySelectorAll('.gallery').forEach(g => {
+  g.addEventListener('mouseenter', () => clearInterval(autoId));
+  g.addEventListener('mouseleave', () => {
+    autoId = setInterval(() => Object.keys(G).forEach(id => ns(+id)), 3800);
   });
-}, { threshold: 0.5 }).observe(document.querySelector('.stats'));
+});
 
+/* touch swipe support */
+document.querySelectorAll('.gallery[data-g]').forEach(g => {
+  let sx = 0;
+  g.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+  g.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) > 40) { dx < 0 ? ns(+g.dataset.g) : ps(+g.dataset.g); }
+  }, { passive: true });
+});
 
-// ── 7. PARALLAX HERO ─────────────────────────
-const hero = document.querySelector('.hero');
+/* ── ACTIVE NAV ON SCROLL ── */
+const secs = document.querySelectorAll('section[id]');
+const navAs = document.querySelectorAll('.nav-links a');
 window.addEventListener('scroll', () => {
-  const s = window.scrollY;
-  if (hero && s < window.innerHeight) {
-    hero.style.transform = `translateY(${s * 0.15}px)`;
-    hero.style.opacity   = String(1 - s / 600);
-  }
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+  navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
 }, { passive: true });
 
-
-// ── 8. GALERÍA (slider) ──────────────────────
-/*
-  Estado de cada galería guardado en un objeto:
-    galleries['monka'] = { index: 0, total: 3 }
-    galleries['merca'] = { index: 0, total: 4 }
-*/
-const galleries = {};
-
-document.querySelectorAll('[data-gallery]').forEach(galleryEl => {
-  const id    = galleryEl.dataset.gallery;
-  const track = galleryEl.querySelector('.gallery-track');
-  const total = track ? track.children.length : 0;
-  galleries[id] = { index: 0, total };
-});
-
-/**
- * Mueve la galería indicada en la dirección dada (+1 / -1).
- * Llamado desde los botones en el HTML con onclick.
- */
-function moveGallery(id, direction) {
-  const state = galleries[id];
-  if (!state) return;
-
-  state.index = (state.index + direction + state.total) % state.total;
-  updateGallery(id);
-}
-
-function updateGallery(id) {
-  const state  = galleries[id];
-  const track  = document.getElementById('gallery-' + id);
-  const dotsEl = document.getElementById('dots-' + id);
-  if (!track || !dotsEl) return;
-
-  // Mover el track
-  track.style.transform = `translateX(-${state.index * 100}%)`;
-
-  // Actualizar puntos
-  dotsEl.querySelectorAll('.dot').forEach((dot, i) => {
-    dot.classList.toggle('active', i === state.index);
-  });
-}
-
-// Click en los puntos
-document.querySelectorAll('[id^="dots-"]').forEach(dotsEl => {
-  const id = dotsEl.id.replace('dots-', '');
-  dotsEl.querySelectorAll('.dot').forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      if (galleries[id]) {
-        galleries[id].index = i;
-        updateGallery(id);
-      }
-    });
-  });
-});
-
-// Autoplay: avanza cada 4 s si el usuario no interactúa
-const AUTOPLAY_MS = 4000;
-let autoplayTimers = {};
-
-function startAutoplay(id) {
-  clearInterval(autoplayTimers[id]);
-  autoplayTimers[id] = setInterval(() => moveGallery(id, 1), AUTOPLAY_MS);
-}
-
-function stopAutoplay(id) {
-  clearInterval(autoplayTimers[id]);
-}
-
-Object.keys(galleries).forEach(id => {
-  startAutoplay(id);
-  const galleryEl = document.querySelector(`[data-gallery="${id}"]`);
-  if (galleryEl) {
-    galleryEl.addEventListener('mouseenter', () => stopAutoplay(id));
-    galleryEl.addEventListener('mouseleave', () => startAutoplay(id));
-    // Touch support
-    let touchStartX = 0;
-    galleryEl.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-    galleryEl.addEventListener('touchend', e => {
-      const diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) moveGallery(id, diff > 0 ? 1 : -1);
-    }, { passive: true });
-  }
-});
-
-
-// ── 9. FEEDBACK BOTÓN DESCARGAR CV ───────────
-const downloadBtn = document.getElementById('downloadBtn');
-if (downloadBtn) {
-  downloadBtn.addEventListener('click', () => {
-    const original = downloadBtn.innerHTML;
-    downloadBtn.innerHTML = '<span>✓</span> ¡Descargando!';
-    downloadBtn.style.background = '#34d399';
-    setTimeout(() => {
-      downloadBtn.innerHTML = original;
-      downloadBtn.style.background = '';
-    }, 2500);
-  });
-}
-
-
-// ── 10. ACTIVE NAV LINK POR SECCIÓN ──────────
-const navLinks = document.querySelectorAll('nav a[href^="#"]');
-
-new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(link => {
-        const isActive = link.getAttribute('href') === '#' + entry.target.id;
-        link.style.color = isActive ? 'var(--accent)' : '';
-      });
-    }
-  });
-}, { threshold: 0.4 }).observe(document.querySelectorAll('section[id]'));
-
-// Corregir: observar todas las secciones por separado
-document.querySelectorAll('section[id]').forEach(section => {
-  new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(link => {
-          const isActive = link.getAttribute('href') === '#' + entry.target.id;
-          link.style.color = isActive ? 'var(--accent)' : '';
-        });
-      }
-    });
-  }, { threshold: 0.4 }).observe(section);
-});
+/* ── MOBILE HAMBURGER ── */
+const hamBtn = document.getElementById('ham');
+const mob = document.getElementById('mob');
+hamBtn.addEventListener('click', () => mob.classList.toggle('open'));
+mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mob.classList.remove('open')));
